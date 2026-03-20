@@ -1,4 +1,4 @@
-package com.github.noob1958;
+package com.github.noob1958.modlist.maven.plugin;
 
 import org.apache.maven.execution.MavenSession;
 import org.apache.maven.plugin.testing.MojoRule;
