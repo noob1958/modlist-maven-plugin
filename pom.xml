@@ -18,9 +18,7 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
-
-  <!-- TODO change it to the project's website -->
-  <url>https://www.example.com</url>
+  <url>https://github.com/noob1958/modlist-maven-plugin</url>
 
   <prerequisites>
     <maven>${maven.version}</maven>
@@ -85,9 +83,9 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <version>6.0.0</version>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
     <dependency>

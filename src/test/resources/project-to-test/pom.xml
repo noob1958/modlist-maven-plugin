@@ -16,8 +16,7 @@
         <groupId>com.github.noob1958</groupId>
         <artifactId>modlist-maven-plugin</artifactId>
         <configuration>
-          <!-- Specify the MyMojo parameter -->
-          <outputDirectory>target/test-harness/project-to-test</outputDirectory>
+          <!-- Specify any ModlistMojo parameter here -->
         </configuration>
       </plugin>
     </plugins>
