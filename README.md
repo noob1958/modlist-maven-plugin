@@ -19,7 +19,7 @@ Add the following to the plugins section of your project's POM file:
 <plugin>
     <groupId>com.github.noob1958</groupId>
     <artifactId>modlist-maven-plugin</artifactId>
-    <version>1.0</version>
+    <version>1.0.0</version>
     <executions>
         <execution>
             <!-- bind the modlist:list goal to a lifecycle phase of your choice: -->
