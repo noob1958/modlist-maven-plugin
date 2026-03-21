@@ -6,11 +6,10 @@ properties, on the other.
 As part of your build process, you may at times want to copy modular
 JAR files from various locations into a directory (e.g. with the `maven-dependency-plugin`), and then 
 hand these collected modules to a plugin or (using the `maven-antrun-plugin`) a java command line tool. This is unproblematic if the tool's parameter accepts a directory. Unfortunately, some require a 
-comma-separated list of module names instead; an example is parameter '--add-modules' of 'jlink'.
+comma-separated list of module names instead; an example is parameter `--add-modules` of `jlink`.
 
-Here, the `modlist-maven-plugin` can help. It scans a specifiable directory and writes
-the fully qualified names of all contained modules into a new maven session property; "modlist" is the
-default name. You can use this property to hand the module name list to other plugins and tools, with `${modlist}` (or the name of your choice).
+Here, the `modlist-maven-plugin` can help. It **scans a specifiable directory and writes
+the fully qualified names of all contained modules into a new maven session property**. The default name of the property is "modlist". You can use this property to hand the module name list to other plugins and tools, with `${modlist}`.
 
 ## Usage
 
