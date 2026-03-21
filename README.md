@@ -1,19 +1,20 @@
 # The `modlist-maven-plugin`
 
 This plugin is meant to be useful as a bridge between directory contents, on the one hand, and maven
-properties, on the other. As part of your build process, you may at times want to copy modular
+properties, on the other. 
+
+As part of your build process, you may at times want to copy modular
 JAR files from various locations into a directory (e.g. with the `maven-dependency-plugin`), and then 
-use these collected modules to a plugin or (using the `maven-antrun-plugin`) a java command line tool. 
-This works fine if the tool's parameter accepts a directory. Unfortunately, some require a 
+hand these collected modules to a plugin or (using the `maven-antrun-plugin`) a java command line tool. This is unproblematic if the tool's parameter accepts a directory. Unfortunately, some require a 
 comma-separated list of module names instead; an example is parameter '--add-modules' of 'jlink'.
-In this situation, the `modlist-maven-plugin` comes in. It scans a specifiable directory and writes
-the fully qualified names of all contained modules to (configurable) a maven property; "modlist" is the
-default. Use this property then to hand the module name list to other plugins and tools, with `${modlist}`
-(or whichever name you want to give it).
+
+Here, the `modlist-maven-plugin` can help. It scans a specifiable directory and writes
+the fully qualified names of all contained modules into a new maven session property; "modlist" is the
+default name. You can use this property to hand the module name list to other plugins and tools, with `${modlist}` (or the name of your choice).
 
 ## Usage
 
-Add the following to your POM file's plugins section:
+Add the following to the plugins section of your project's POM file:
 
 ```XML
 <plugin>
@@ -35,8 +36,10 @@ Add the following to your POM file's plugins section:
     </executions>
 </plugin>
 ```
-This configuration would find every modules in folder `libs` and its subfolders.
-The plugin has these configuration tags: 
+
+This configuration would find every module in folder `libs` and its subfolders.
+
+The plugin has two goals (`list` and `help`) and these configuration tags: 
 * inputDir: the path to the folder to read, relative to the project's base directory. This tag is mandatory.
 * outputPropertyName: the name of the session property that will receive the output. Optional; the default is "modlist".
 * excludeFiles: An optional glob-format string indicating which of the files in the inputDir to exclude before generating the module list. E.g. "abc-*-def.jar" will exclude "abc-ghi-def.jar".
