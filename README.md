@@ -8,8 +8,8 @@ JAR files from various locations into a directory (e.g. with the `maven-dependen
 hand these collected modules to a plugin or (using the `maven-antrun-plugin`) a java command line tool. This is unproblematic if the tool's parameter accepts a directory. Unfortunately, some require a 
 comma-separated list of module names instead; an example is parameter `--add-modules` of `jlink`.
 
-Here, the `modlist-maven-plugin` can help. It **scans a specifiable directory and writes
-the fully qualified names of all contained modules into a new maven session property**. The default name of the property is "modlist". You can use this property to hand the module name list to other plugins and tools, with `${modlist}`.
+Here, the `modlist-maven-plugin` can help. It **scans a directory, makes a comma-separated list of 
+the fully qualified names of all contained modules, and outputs the list as a new maven session property**. The default name of the property is "modlist". You can use this property then to hand the module list to other plugins and tools, with `${modlist}`.
 
 ## Usage
 
