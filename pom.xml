@@ -5,12 +5,14 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.github.noob1958</groupId>
+  <groupId>io.github.noob1958</groupId>
   <artifactId>modlist-maven-plugin</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <packaging>maven-plugin</packaging>
 
   <name>Modlist Maven Plugin</name>
+  <description>The Modlist Maven Plugin lists the names of all modules in a directory and makes them available as a maven property.</description>
+  <url>https://github.com/noob1958/modlist-maven-plugin</url>
   <licenses>
     <license>
       <name>Apache License, Version 2.0</name>
@@ -18,7 +20,19 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
-  <url>https://github.com/noob1958/modlist-maven-plugin</url>
+  <developers>
+    <developer>
+      <name>noob1958</name>
+      <email>webfirstorderlogic@gmail.com</email>
+      <organization>noob1958</organization>
+      <organizationUrl>https://noob1958.github.io</organizationUrl>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:git://github.com/noob1958/modlist-maven-plugin.git</connection>
+    <developerConnection>scm:git:git://github.com/noob1958/modlist-maven-plugin.git</developerConnection>
+    <url>http://github.com/noob1958//modlist-maven-plugin/tree/master</url>
+  </scm>
 
   <prerequisites>
     <maven>${maven.version}</maven>
@@ -175,7 +189,7 @@
         <executions>
           <execution>
             <goals><goal>jar-no-fork</goal></goals>
-            <phase>verify</phase>
+            <phase>post-integration-test</phase>
           </execution>
         </executions>
       </plugin>
@@ -186,9 +200,18 @@
         <executions>
           <execution>
             <goals><goal>jar</goal></goals>
-            <phase>verify</phase>
+            <phase>post-integration-test</phase>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.sonatype.central</groupId>
+        <artifactId>central-publishing-maven-plugin</artifactId>
+        <version>0.9.0</version>
+        <extensions>true</extensions>
+        <configuration>
+          <publishingServerId>sonatype-maven-central</publishingServerId>
+        </configuration>
       </plugin>
     </plugins>
   </build>
