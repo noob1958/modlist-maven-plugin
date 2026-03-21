@@ -36,7 +36,7 @@ Add the following to the plugins section of your project's POM file:
 </plugin>
 ```
 
-This configuration would find every module in folder `libs` and its subfolders.
+This configuration would find every module in folder `libs` and its subfolders. It would delete jars beginning with "javafx-", exclude jars ending with "-mac", and write the remaining names comma-separated to the new maven session property "my.property.name". IDEs may flag the property as an error, but you can just suppress the warning.  
 
 The plugin has two goals (`list` and `help`) and these configuration tags: 
 * inputDir: the path to the folder to read, relative to the project's base directory. This tag is mandatory.
