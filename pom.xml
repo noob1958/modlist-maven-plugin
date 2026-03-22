@@ -162,6 +162,57 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>3.2.0</version>
+        <executions>
+          <execution>
+            <id>copy-pom</id>
+            <phase>pre-integration-test</phase>
+            <goals><goal>run</goal></goals>
+            <configuration>
+              <target>
+                <copy file="pom.xml" todir="target/"/>
+              </target>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>3.5.0</version>
+        <executions>
+          <execution>
+            <id>attach-pom-as-artifact</id>
+            <phase>integration-test</phase>
+            <goals>
+              <goal>attach-artifact</goal>
+            </goals>
+            <configuration>
+              <artifacts>
+                <artifact>
+                  <file>${project.basedir}/target/pom.xml</file>
+                  <type>pom</type>
+                </artifact>
+              </artifacts>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+          <groupId>net.nicoulaj.maven.plugins</groupId>
+          <artifactId>checksum-maven-plugin</artifactId>
+          <version>1.11</version>
+          <executions>
+            <execution>
+              <id>checksum-artifacts</id>
+              <goals><goal>artifacts</goal></goals>
+              <phase>verify</phase>
+            </execution>
+          </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-plugin-plugin</artifactId>
         <configuration>
           <!-- <goalPrefix>maven-archetype-plugin</goalPrefix> -->
@@ -189,7 +240,7 @@
         <executions>
           <execution>
             <goals><goal>jar-no-fork</goal></goals>
-            <phase>post-integration-test</phase>
+            <phase>integration-test</phase>
           </execution>
         </executions>
       </plugin>
@@ -200,18 +251,9 @@
         <executions>
           <execution>
             <goals><goal>jar</goal></goals>
-            <phase>post-integration-test</phase>
+            <phase>integration-test</phase>
           </execution>
         </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.sonatype.central</groupId>
-        <artifactId>central-publishing-maven-plugin</artifactId>
-        <version>0.9.0</version>
-        <extensions>true</extensions>
-        <configuration>
-          <publishingServerId>sonatype-maven-central</publishingServerId>
-        </configuration>
       </plugin>
     </plugins>
   </build>
