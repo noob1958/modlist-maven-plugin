@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # Contributors have to set the new version before publishing:
-VERSION="1.0.1"
+VERSION="1.0.2"
 
 COPY_TO="io/github/noob1958/modlist-maven-plugin/$VERSION"
 

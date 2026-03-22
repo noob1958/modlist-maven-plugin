@@ -7,7 +7,7 @@
 
   <groupId>io.github.noob1958</groupId>
   <artifactId>modlist-maven-plugin</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
 
   <name>Modlist Maven Plugin</name>
