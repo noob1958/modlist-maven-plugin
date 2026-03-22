@@ -19,7 +19,7 @@ Add the following to the plugins section of your project's POM file:
 <plugin>
     <groupId>io.github.noob1958</groupId>
     <artifactId>modlist-maven-plugin</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <executions>
         <execution>
             <!-- bind the modlist:list goal to a lifecycle phase of your choice: -->
@@ -39,10 +39,10 @@ Add the following to the plugins section of your project's POM file:
 This configuration would find every module in folder `libs` and its subfolders. It would delete jars beginning with "javafx-", exclude jars ending with "-mac", and write the fully qualified names of the remaining modules comma-separated to the new maven session property "my.property.name". IDEs may flag the property as an error, but you can just suppress the warning.  
 
 The plugin has two goals (`list` and `help`) and these configuration tags: 
-* inputDir: the path to the folder to read, relative to the project's base directory. This tag is mandatory.
-* outputPropertyName: the name of the session property that will receive the output. Optional; the default is "modlist".
-* excludeFiles: An optional glob-format string indicating which of the files in the inputDir to exclude before generating the module list. E.g. "abc-*-def.jar" will exclude "abc-ghi-def.jar".
-* deleteFiles: An optional glob-format string indicating which of the files in the inputDir to delete before generating the module list. E.g. "abc-*-def.jar" will delete "abc-ghi-def.jar".
+* _inputDir_: The path to the folder to read, relative to the project's base directory. This tag is **mandatory**.
+* _outputPropertyName_: The name of the session property that will receive the output. Optional; the default is "modlist".
+* _excludeFiles_: An optional glob-format string indicating which of the files in the inputDir to exclude before generating the module list. E.g. "abc-*-def.jar" will exclude "abc-ghi-def.jar".
+* _deleteFiles_: An optional glob-format string indicating which of the files in the inputDir to delete before generating the module list. E.g. "abc-*-def.jar" will delete "abc-ghi-def.jar".
 
 ## Prerequisites
 
