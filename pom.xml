@@ -171,7 +171,7 @@
             <goals><goal>run</goal></goals>
             <configuration>
               <target>
-                <copy file="pom.xml" todir="target/"/>
+                <copy file="pom.xml" tofile="target/modlist-maven-plugin-${version}.pom"/>
               </target>
             </configuration>
           </execution>
@@ -191,7 +191,7 @@
             <configuration>
               <artifacts>
                 <artifact>
-                  <file>${project.basedir}/target/pom.xml</file>
+                  <file>${project.basedir}/target/modlist-maven-plugin-${version}.pom</file>
                   <type>pom</type>
                 </artifact>
               </artifacts>
